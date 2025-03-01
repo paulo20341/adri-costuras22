@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
+  base: '/', // Mantenha isso para rotas funcionarem
+  server: {
+    host: '0.0.0.0', // ✅ Obrigatório para o Render
+    port: 3000 // Pode ser qualquer número (o Render substitui pela variável PORT)
+  }
 });
